@@ -107,14 +107,14 @@ describe('<PokemonPage />', () => {
 
     await act(async () => {
       render(
-        <MemoryRouter initialEntries={['/pokemon/eevee']}>
+        <MemoryRouter initialEntries={['/pokemon/squirtle']}>
           <PokemonPage previous={previous} next={next}/>
         </MemoryRouter>,
       )
     })
 
-    expect(screen.getByText('Previous')).toHaveAttribute('href', '/pokemon/ditto')
-    expect(screen.getByText('Next')).toHaveAttribute('href', '/pokemon/vaporeon')
+    expect(screen.getByText('Previous')).toHaveAttribute('href', '/pokemon/charizard')
+    expect(screen.getByText('Next')).toHaveAttribute('href', '/pokemon/wartortle')
   })
 
   it('should not render previous and next urls if none exist', async () => {
