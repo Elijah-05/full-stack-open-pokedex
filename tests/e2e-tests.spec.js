@@ -1,10 +1,6 @@
-const { test, describe, expect, beforeEach } = require("@playwright/test");
+const { test, describe, expect } = require("@playwright/test");
 
 describe("Pokedex", () => {
-  beforeEach(async ({ page }) => {
-    // Any setup you want before each test runs
-  });
-
   test("front page can be opened", async ({ page }) => {
     await page.goto(""); // Provide the correct URL
     await expect(page.getByText("Ivysaur")).toBeVisible();
