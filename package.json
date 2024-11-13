@@ -62,9 +62,6 @@
     "testEnvironment": "jsdom",
     "testPathIgnorePatterns": [
       "e2e-tests"
-    ],
-    "setupFilesAfterEnv": [
-      "<rootDir>/jest.setup.js"
     ]
   }
 }
