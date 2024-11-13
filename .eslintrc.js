@@ -1,14 +1,24 @@
 module.exports = {
   root: true,
-  env: { browser: true, es2020: true, node: true },
+  env: {
+    browser: true,
+    es2020: true,
+    node: true,
+  },
   extends: [
     "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended", // Ensures React-specific linting
     "plugin:react-hooks/recommended",
   ],
   ignorePatterns: ["dist", ".eslintrc.cjs", "test"],
-  parser: "@typescript-eslint/parser",
-  plugins: ["react-refresh"],
+  parserOptions: {
+    ecmaVersion: 2020, // Enables modern JavaScript features
+    sourceType: "module", // Specifies ES6 modules
+    ecmaFeatures: {
+      jsx: true, // Enables JSX parsing for React
+    },
+  },
+  plugins: ["react", "react-refresh"],
   rules: {
     "react-refresh/only-export-components": [
       "warn",
@@ -16,8 +26,6 @@ module.exports = {
     ],
     indent: ["error", 2],
     "linebreak-style": 0,
-    // quotes: ["error", "single"],
-    // semi: ["error", "never"],
     eqeqeq: "error",
     "no-trailing-spaces": "error",
     "object-curly-spacing": ["error", "always"],
