@@ -18,4 +18,16 @@ describe("Pokedex", () => {
 
     await expect(page.getByText("chlorophyll")).toBeVisible(); //confirm if it navigates and find the text
   });
+
+  test("version route works fine", async ({ page }) => {
+    await page.goto("version");
+
+    await expect(page.getByText("2")).toBeVisible();
+  });
+
+  test("check the health is ok", async ({ page }) => {
+    await page.goto("health");
+
+    await expect(page.getByText("ok")).toBeVisible();
+  });
 });

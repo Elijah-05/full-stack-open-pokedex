@@ -77,12 +77,12 @@ module.exports = defineConfig({
   // },
 
   webServer: {
-    command: "npm run start",
-    url: "http://127.0.0.1:8080",
+    command: "npm run build && node app.js",
+    url: "http://127.0.0.1:3000",
     timeout: 120 * 1000,
     reuseExistingServer: !process.env.CI,
   },
   use: {
-    baseURL: "http://localhost:8080/",
+    baseURL: "http://localhost:3000/",
   },
 });
