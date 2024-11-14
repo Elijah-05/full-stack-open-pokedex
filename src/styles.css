@@ -39,7 +39,8 @@ footer {
 
 .pokedex-title {
   text-align: center;
-  color: #69f;
+  color: rgb(20, 179, 131);
+  text-transform: uppercase;
 }
 
 .list-container {
