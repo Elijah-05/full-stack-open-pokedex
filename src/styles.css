@@ -1,6 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300,700');
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300,700");
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
 }
@@ -39,7 +40,13 @@ footer {
 
 .pokedex-title {
   text-align: center;
-  color: #69f;
+  color: rgb(235, 18, 137);
+  text-transform: uppercase;
+}
+
+.pokedex-desc {
+  font-size: small;
+  text-align: center;
 }
 
 .list-container {
