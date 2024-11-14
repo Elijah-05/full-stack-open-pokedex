@@ -6,6 +6,7 @@ const PokemonList = ({ pokemonList }) => {
   return (
     <div>
       <h2 className="pokedex-title">Pokedex</h2>
+      <p className="pokedex-desc">Here is the description</p>
       <div className="list-container">
         {pokemonList.map(({ id, name }) => (
           <Link
