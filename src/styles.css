@@ -53,6 +53,7 @@ footer {
 .list-container {
   display: flex;
   flex-wrap: wrap;
+  border: 0.4px dashed pink
 }
 
 .list-item {
