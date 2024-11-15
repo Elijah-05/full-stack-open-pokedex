@@ -1,9 +1,9 @@
 name: Deployment pipeline
 
 env:
-  #boolean condition
-  CONDITION: ${{ contains(toJson(github.event.commits.*.message)[0] , '#skip') }}
-  MESSAG: ${{ toJson(github.event.commits.*.message) }}
+  # Check if any commit message includes '#skip'
+  CONDITION: ${{ contains(join(github.event.commits.*.message, ' '), '#skip') }}
+  MESSAGES: ${{ join(github.event.commits.*.message, ', ') }}
 
 on:
   push:
