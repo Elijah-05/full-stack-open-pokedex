@@ -22,7 +22,7 @@ describe("Pokedex", () => {
   test("version route works fine", async ({ page }) => {
     await page.goto("version");
 
-    await expect(page.getByText("4")).toBeVisible();
+    await expect(page.getByText("5")).toBeVisible();
   });
 
   test("check the health is ok", async ({ page }) => {
