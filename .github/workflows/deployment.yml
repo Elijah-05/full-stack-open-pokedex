@@ -3,7 +3,7 @@ name: Deployment pipeline
 env:
   # Check if any commit message includes '#skip'
   CONDITION: ${{ contains(join(github.event.commits.*.message, ' '), '#skip') }}
-  MESSAGES: ${{join(github.event.commits.*.message)}}
+  MESSAGE: ${{join(github.event.commits.*.message)}}
 
 on:
   push:
@@ -76,7 +76,7 @@ jobs:
       - name: Context Boolean
         run: echo "$CONDITION"
       - name: Message value
-        run: echo {{}}
+        run: echo "$MESSAGE"
       - name: github context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
