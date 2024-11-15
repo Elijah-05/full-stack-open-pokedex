@@ -74,9 +74,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: github context
-        run: echo "$CONDITION"
+        run: echo ${{env.CONDITION}}
       - name: messag value
-        run: echo "$MESSAG"
+        run: echo ${{env.MESSAG}}
       - name: github context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
