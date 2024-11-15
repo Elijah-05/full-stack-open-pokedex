@@ -73,9 +73,9 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v4
-      - name: Context Boolean
+      - name: Is Skip Boolean
         run: echo "$CONDITION"
-      - name: Message value
+      - name: Commit value
         run: echo "$MESSAGE"
       - name: github context
         env:
