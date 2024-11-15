@@ -1,4 +1,13 @@
+<<<<<<< Updated upstream:.github/workflows/hello.yml
 name: Hello World!
+=======
+name: Deployment pipeline
+
+env:
+  #boolean condition
+  CONDITION: ${{ contains(toJson(github.event.commits.*.message)[0] , '#skip') }}
+  MESSAG: ${{ toJson(github.event.commits.*.message) }}
+>>>>>>> Stashed changes:.github/workflows/deployment.yml
 
 on:
   push:
