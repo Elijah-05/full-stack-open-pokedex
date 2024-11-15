@@ -1,5 +1,11 @@
 name: Deployment pipeline
 
+env:
+  #boolean condition
+  CONDITION: ${{ contains(toJson(github.event.commits.*.message)[0] , '#skip') }}
+  MESSAG: ${{ toJson(github.event.commits.*.message)[0] }}
+  run: echo "$CONDITION"
+    echo "message of commit $MESSAG"
 on:
   push:
     branches:
