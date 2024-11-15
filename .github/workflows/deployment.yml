@@ -1,13 +1,9 @@
-<<<<<<< Updated upstream:.github/workflows/hello.yml
-name: Hello World!
-=======
 name: Deployment pipeline
 
 env:
   #boolean condition
   CONDITION: ${{ contains(toJson(github.event.commits.*.message)[0] , '#skip') }}
   MESSAG: ${{ toJson(github.event.commits.*.message) }}
->>>>>>> Stashed changes:.github/workflows/deployment.yml
 
 on:
   push:
@@ -56,8 +52,40 @@ jobs:
           path: playwright-report/
           retention-days: 30
       - name: Trigger deployment
+        if: ${{ github.event_name == 'push' }}
         uses: sws2apps/render-deployment@main #consider using pin for dependabot auto update
         with:
           serviceId: ${{ secrets.RENDER_SERVICE_ID }}
           apiKey: ${{ secrets.RENDER_API_KEY }}
           multipleDeployment: false #optional, default true
+  tag_release:
+    needs: [simple_deployment_pipeline]
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Bump version and push tag
+        if: ${{ github.event_name == 'push' }}
+        uses: anothrNick/github-tag-action@1.71.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  a_test_job:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Context Boolean
+        run: echo "$CONDITION"
+      - name: Message value
+        run: echo {{}}
+      - name: github context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: commits
+        env:
+          COMMITS: ${{ toJson(github.event.commits) }}
+        run: echo "$COMMITS"
+      - name: commit messages
+        env:
+          COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
+        run: echo "$COMMIT_MESSAGES"
