@@ -4,8 +4,7 @@ env:
   #boolean condition
   CONDITION: ${{ contains(toJson(github.event.commits.*.message)[0] , '#skip') }}
   MESSAG: ${{ toJson(github.event.commits.*.message)[0] }}
-  run: echo "$CONDITION"
-    echo "message of commit $MESSAG"
+
 on:
   push:
     branches:
@@ -74,6 +73,10 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v4
+      - name: github context
+        run: echo "$CONDITION"
+      - name: messag value
+        run: echo "$MESSAG"
       - name: github context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
