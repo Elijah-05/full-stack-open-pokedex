@@ -5,7 +5,7 @@ import PropTypes from "prop-types"; // Import PropTypes
 const PokemonList = ({ pokemonList }) => {
   return (
     <div>
-      <h2 className="pokedex-title">Pokedex lists</h2>
+      <h2 className="pokedex-title">Pokedex lists Latest</h2>
       <p className="pokedex-desc">pokedexs with their detail properties</p>
       <div className="list-container">
         {pokemonList.map(({ id, name }) => (
