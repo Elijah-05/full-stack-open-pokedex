@@ -39,8 +39,9 @@ footer {
 }
 
 .pokedex-title {
+  font-size: large;
   text-align: center;
-  color: rgb(235, 18, 137);
+  color: rgb(137, 18, 235);
   text-transform: uppercase;
 }
 
