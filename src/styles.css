@@ -52,10 +52,9 @@ footer {
 }
 
 .list-container {
-  background-color: rgba(163, 108, 218, 0.534);
   display: flex;
   flex-wrap: wrap;
-  padding: 0 4px;
+  margin: 0 4px;
   border: 0.4px dashed pink;
 }
 
